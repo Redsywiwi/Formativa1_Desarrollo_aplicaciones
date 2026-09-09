@@ -60,13 +60,12 @@ fun main() {
 
 fun recargoNocturno(): Int {
     LocalTime.now().run {
-        if (hour <= 5 || hour >= 22) {
+        if (LocalTime.now().hour <= 5 || hour >= 22) {
             return 1000
         }else{
             return 0
         }
     }
-
 }
 
 
