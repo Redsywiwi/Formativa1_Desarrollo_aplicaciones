@@ -1,8 +1,10 @@
 package com.example.caso_comida_express.Main
 import com.example.caso_comida_express.Classes.Bebida
 import com.example.caso_comida_express.Classes.Cliente
+import com.example.caso_comida_express.Classes.EstadoPedido
 import com.example.caso_comida_express.Classes.Plato
 import com.example.caso_comida_express.Classes.Producto
+import com.example.caso_comida_express.Classes.mostrarEstado
 import java.time.LocalTime
 
 var ListaClientes= mutableListOf<Cliente>()
@@ -11,7 +13,12 @@ var total = 0
 var envio = 5000
 
 
+
 fun main() {
+    val estado1 = EstadoPedido.Preparando
+    val estado2 = EstadoPedido.EnCamino("Mishhh")
+    val estado3 = EstadoPedido.Entregado
+    val estado4 = EstadoPedido.Cancelado("Algo salio Mal")
     val c1 = Cliente("Camila Rojas", "Av. Siempre Viva 742, Santiago", true)
     ListaClientes.add(c1)
 
@@ -44,6 +51,11 @@ fun main() {
         it.calcularpreciofinal()
         println(it.precioBase)
     }
+
+    mostrarEstado(estado1)
+    mostrarEstado(estado2)
+    mostrarEstado(estado3)
+    mostrarEstado(estado4)
 }
 
 fun recargoNocturno(): Int {
@@ -56,6 +68,10 @@ fun recargoNocturno(): Int {
     }
 
 }
+
+
+
+
 
 fun cliente_frecuente(): Int{
     return  with(ListaClientes[0]) {

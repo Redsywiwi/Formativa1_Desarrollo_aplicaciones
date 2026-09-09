@@ -8,7 +8,7 @@ class Plato(
     override fun calcularpreciofinal(): Double{
         //recargo de 25% si tamano_Porcion es "Grande".
         if (tamanoporcion.lowercase() == "grande")
-            precioBase+= precioBase * 0.25
+            precioBase*= 1.25
             return precioBase
     }
 }
